@@ -1,0 +1,15 @@
+1610387108136	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\WICTOR\\AppData\\Local\\Temp\\rust_mozprofile9QydtW"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610387116723	Marionette	INFO	Listening on port 65063
+1610387116794	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 42748, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:166
+WARNING: At least one completion condition is taking too long to complete. Conditions: [{"name":"CrashMonitor: Writing notifications to file after receiving profile-before-change","state":"(none)","filename":"resource://gre/modules/CrashMonitor.jsm","lineNumber":176,"stack":["resource://gre/modules/CrashMonitor.jsm:init:176","resource://gre/modules/nsCrashMonitor.jsm:observe:19"]}] Barrier: OS.File: Waiting for clients before profileBeforeChange
+WARNING: At least one completion condition is taking too long to complete. Conditions: [{"name":"OS.File: flush I/O queued before profileBeforeChange","state":{"launched":true,"shutdown":false,"worker":true,"pendingReset":false,"latestSent":["Mon Jan 11 2021 14:51:48 GMT-0300 (Horário Padrão de Brasília)","makeDir"],"latestReceived":["Mon Jan 11 2021 14:51:48 GMT-0300 (Horário Padrão de Brasília)",null],"messagesSent":149,"messagesReceived":149,"messagesQueued":149,"DEBUG":false,"clients":[{"name":"CrashMonitor: Writing notifications to file after receiving profile-before-change","state":"(none)","filename":"resource://gre/modules/CrashMonitor.jsm","lineNumber":176,"stack":["resource://gre/modules/CrashMonitor.jsm:init:176","resource://gre/modules/nsCrashMonitor.jsm:observe:19"]}]},"filename":"resource://gre/modules/osfile/osfile_async_front.jsm","lineNumber":1652,"stack":["resource://gre/modules/osfile/osfile_async_front.jsm:setupShutdown:1652","resource://gre/modules/osfile/osfile_async_front.jsm:null:1672","resource://gre/modules/osfile.jsm:null:11","resource://gre/modules/addons/GMPProvider.jsm:null:16","resource://gre/modules/AddonManager.jsm:startup:789","resource://gre/modules/AddonManager.jsm:startup:3530","resource://gre/modules/addonManager.js:observe:87"]}] Barrier: profile-before-change
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 433))
+1610387515717	Marionette	INFO	Stopped listening on port 65063
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
