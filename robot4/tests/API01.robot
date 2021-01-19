@@ -27,12 +27,16 @@ Case of test 3: cadaster a new book (POST)
     cadaster a new book
     check status code            200
     check reason                 OK
+    # check a specific book        {'id': 210, 'title': 'test', 'description': 'test', 'pageCount': 25, 'excerpt': 'test', 'publishDate': '2021-01-19T10:29:45.149Z'}
+    check if return all datas cadaster in new book   210
 
 Case of test 4: TO-DO - Alter the book (PUT)
     [TAGS]  PUT
     alter a book    100
     check status code            200
     check reason                 OK
+    # check a specific book        {'id': 100, 'title': 'test 2', 'description': 'test 2', 'pageCount': 0, 'excerpt': 'test 2', 'publishDate': '2021-01-19T10:55:09.641Z'}
+    check if return all datas cadaster in edited book   100
 
 Case of test 5: TO-DO - delete a book (DELETE)
     [TAGS]  DELETE

@@ -1,7 +1,7 @@
 *** Settings ***
 Resource        ../resource/Resource.robot
 Test Setup      Abrir navegador
-# Test Teardown   Fechar navegador
+Test Teardown   Fechar navegador
 
 *** Test Cases ***
 Caso de teste 1: pesquisar produtos existentes
@@ -16,4 +16,3 @@ Caso de teste 2: pesquisar produtos não existentes
     Clicar no botão pesquisar
     Conferir se a mensagem de erro: "No results were found for your search "produtoNãoExistente""
 
-# *** Keywords ***

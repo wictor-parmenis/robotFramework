@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.3 on win32)" generated="20210110 11:52:23.043" rpa="false">
-<suite id="s1" name="TestSitePracticeBDD" source="C:\Users\WICTOR\VSC_projects\python\Tests\Robot\SuiteSiteTestPractice\tests\TestSitePracticeBDD.robot">
+<robot generator="Robot 3.2.2 (Python 3.8.3 on win32)" generated="20210119 12:20:14.210" rpa="false">
+<suite id="s1" name="TestSitePractice" source="C:\Users\WICTOR\PycharmProjects\RPA\robot-framework\robot1\tests\TestSitePractice.robot">
+<test id="s1-t1" name="Caso de teste 1: pesquisar produtos existentes">
 <kw name="Abrir navegador" library="Resource" type="setup">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
@@ -8,47 +9,42 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20210110 11:52:23.317" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
-<msg timestamp="20210110 11:52:23.320" level="INFO">Firefox driver log is always forced to to: C:\Users\WICTOR\VSC_projects\python\Tests\Robot\SuiteSiteTestPractice\results\geckodriver-3.log</msg>
-<status status="PASS" starttime="20210110 11:52:23.317" endtime="20210110 11:52:34.060"></status>
+<msg timestamp="20210119 12:20:14.709" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20210119 12:20:14.733" level="INFO">Firefox driver log is always forced to to: C:\Users\WICTOR\PycharmProjects\RPA\robot-framework\robot1\results\geckodriver-6.log</msg>
+<status status="PASS" starttime="20210119 12:20:14.708" endtime="20210119 12:20:28.541"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:23.317" endtime="20210110 11:52:34.061"></status>
+<status status="PASS" starttime="20210119 12:20:14.707" endtime="20210119 12:20:28.541"></status>
 </kw>
-<test id="s1-t1" name="Caso de teste 1: pesquisar produtos existentes">
-<kw name="Dado que estou na página home do site">
 <kw name="Acessar a página home do site" library="Resource">
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the current browser window to the provided ``url``.</doc>
 <arguments>
 <arg>http://automationpractice.com/index.php</arg>
 </arguments>
-<msg timestamp="20210110 11:52:34.064" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
-<status status="PASS" starttime="20210110 11:52:34.063" endtime="20210110 11:52:39.935"></status>
+<msg timestamp="20210119 12:20:28.543" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" starttime="20210119 12:20:28.543" endtime="20210119 12:20:41.196"></status>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current page title equals ``title``.</doc>
 <arguments>
 <arg>My Store</arg>
 </arguments>
-<msg timestamp="20210110 11:52:39.938" level="INFO">Page title is 'My Store'.</msg>
-<status status="PASS" starttime="20210110 11:52:39.935" endtime="20210110 11:52:39.938"></status>
+<msg timestamp="20210119 12:20:41.504" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" starttime="20210119 12:20:41.196" endtime="20210119 12:20:41.504"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:34.063" endtime="20210110 11:52:39.938"></status>
+<status status="PASS" starttime="20210119 12:20:28.542" endtime="20210119 12:20:41.505"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:34.062" endtime="20210110 11:52:39.938"></status>
-</kw>
-<kw name="Quando eu pesquisar pelo produto &quot;Blouse&quot;">
-<kw name="Digitar o nome do produto &quot;${PRODUCT}&quot; no campo de pesquisa" library="Resource">
+<kw name="Digitar o nome do produto &quot;Blouse&quot; no campo de pesquisa" library="Resource">
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>name=search_query</arg>
 <arg>${PRODUCT}</arg>
 </arguments>
-<msg timestamp="20210110 11:52:39.940" level="INFO">Typing text 'Blouse' into text field 'name=search_query'.</msg>
-<status status="PASS" starttime="20210110 11:52:39.940" endtime="20210110 11:52:39.997"></status>
+<msg timestamp="20210119 12:20:41.506" level="INFO">Typing text 'Blouse' into text field 'name=search_query'.</msg>
+<status status="PASS" starttime="20210119 12:20:41.506" endtime="20210119 12:20:42.041"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:39.940" endtime="20210110 11:52:39.997"></status>
+<status status="PASS" starttime="20210119 12:20:41.505" endtime="20210119 12:20:42.042"></status>
 </kw>
 <kw name="Clicar no botão pesquisar" library="Resource">
 <kw name="Click Button" library="SeleniumLibrary">
@@ -56,87 +52,98 @@
 <arguments>
 <arg>name=submit_search</arg>
 </arguments>
-<msg timestamp="20210110 11:52:39.999" level="INFO">Clicking button 'name=submit_search'.</msg>
-<status status="PASS" starttime="20210110 11:52:39.998" endtime="20210110 11:52:42.539"></status>
+<msg timestamp="20210119 12:20:42.043" level="INFO">Clicking button 'name=submit_search'.</msg>
+<status status="PASS" starttime="20210119 12:20:42.043" endtime="20210119 12:20:45.289"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:39.997" endtime="20210110 11:52:42.540"></status>
+<status status="PASS" starttime="20210119 12:20:42.042" endtime="20210119 12:20:45.289"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:39.939" endtime="20210110 11:52:42.540"></status>
-</kw>
-<kw name="Então o produto &quot;Blouse&quot; deve ser listado na página resultado da busca">
-<kw name="Conferir se o produto &quot;${PRODUCT}&quot; foi listado no site" library="Resource">
+<kw name="Conferir se o produto &quot;Blouse&quot; foi listado no site" library="Resource">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>css=.product_img_link &gt; img:nth-child(1)</arg>
 </arguments>
-<status status="PASS" starttime="20210110 11:52:42.543" endtime="20210110 11:52:42.593"></status>
+<status status="PASS" starttime="20210119 12:20:45.294" endtime="20210119 12:20:45.489"></status>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current page title equals ``title``.</doc>
 <arguments>
 <arg>Search - My Store</arg>
 </arguments>
-<msg timestamp="20210110 11:52:42.596" level="INFO">Page title is 'Search - My Store'.</msg>
-<status status="PASS" starttime="20210110 11:52:42.593" endtime="20210110 11:52:42.596"></status>
+<msg timestamp="20210119 12:20:45.494" level="INFO">Page title is 'Search - My Store'.</msg>
+<status status="PASS" starttime="20210119 12:20:45.489" endtime="20210119 12:20:45.495"></status>
 </kw>
 <kw name="Page Should Contain Image" library="SeleniumLibrary">
 <doc>Verifies image identified by ``locator`` is found from current page.</doc>
 <arguments>
 <arg>xpath=//*[@id="center_column"]//*[@src='http://automationpractice.com/img/p/7/7-home_default.jpg']</arg>
 </arguments>
-<msg timestamp="20210110 11:52:42.607" level="INFO">Current page contains image 'xpath=//*[@id="center_column"]//*[@src='http://automationpractice.com/img/p/7/7-home_default.jpg']'.</msg>
-<status status="PASS" starttime="20210110 11:52:42.596" endtime="20210110 11:52:42.607"></status>
+<msg timestamp="20210119 12:20:45.524" level="INFO">Current page contains image 'xpath=//*[@id="center_column"]//*[@src='http://automationpractice.com/img/p/7/7-home_default.jpg']'.</msg>
+<status status="PASS" starttime="20210119 12:20:45.495" endtime="20210119 12:20:45.524"></status>
 </kw>
 <kw name="Page Should Contain Link" library="SeleniumLibrary">
 <doc>Verifies link identified by ``locator`` is found from current page.</doc>
 <arguments>
 <arg>xpath=//*[@id="center_column"]//a[@class="product-name"][contains(text(),"${PRODUCT}")]</arg>
 </arguments>
-<msg timestamp="20210110 11:52:42.615" level="INFO">Current page contains link 'xpath=//*[@id="center_column"]//a[@class="product-name"][contains(text(),"Blouse")]'.</msg>
-<status status="PASS" starttime="20210110 11:52:42.608" endtime="20210110 11:52:42.615"></status>
+<msg timestamp="20210119 12:20:45.538" level="INFO">Current page contains link 'xpath=//*[@id="center_column"]//a[@class="product-name"][contains(text(),"Blouse")]'.</msg>
+<status status="PASS" starttime="20210119 12:20:45.524" endtime="20210119 12:20:45.538"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:42.542" endtime="20210110 11:52:42.616"></status>
+<status status="PASS" starttime="20210119 12:20:45.293" endtime="20210119 12:20:45.539"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:42.541" endtime="20210110 11:52:42.616"></status>
+<kw name="Fechar navegador" library="Resource" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210119 12:20:45.540" endtime="20210119 12:20:49.512"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:34.061" endtime="20210110 11:52:42.617" critical="yes"></status>
+<status status="PASS" starttime="20210119 12:20:45.540" endtime="20210119 12:20:49.512"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:14.706" endtime="20210119 12:20:49.512" critical="yes"></status>
 </test>
 <test id="s1-t2" name="Caso de teste 2: pesquisar produtos não existentes">
-<kw name="Dado que estou na página home do site">
+<kw name="Abrir navegador" library="Resource" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210119 12:20:49.517" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20210119 12:20:49.519" level="INFO">Firefox driver log is always forced to to: C:\Users\WICTOR\PycharmProjects\RPA\robot-framework\robot1\results\geckodriver-7.log</msg>
+<status status="PASS" starttime="20210119 12:20:49.517" endtime="20210119 12:21:00.237"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:49.516" endtime="20210119 12:21:00.238"></status>
+</kw>
 <kw name="Acessar a página home do site" library="Resource">
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the current browser window to the provided ``url``.</doc>
 <arguments>
 <arg>http://automationpractice.com/index.php</arg>
 </arguments>
-<msg timestamp="20210110 11:52:42.628" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
-<status status="PASS" starttime="20210110 11:52:42.628" endtime="20210110 11:52:44.940"></status>
+<msg timestamp="20210119 12:21:00.241" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" starttime="20210119 12:21:00.240" endtime="20210119 12:21:09.396"></status>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current page title equals ``title``.</doc>
 <arguments>
 <arg>My Store</arg>
 </arguments>
-<msg timestamp="20210110 11:52:44.956" level="INFO">Page title is 'My Store'.</msg>
-<status status="PASS" starttime="20210110 11:52:44.940" endtime="20210110 11:52:44.956"></status>
+<msg timestamp="20210119 12:21:09.403" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" starttime="20210119 12:21:09.396" endtime="20210119 12:21:09.404"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:42.628" endtime="20210110 11:52:44.956"></status>
+<status status="PASS" starttime="20210119 12:21:00.239" endtime="20210119 12:21:09.404"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:42.627" endtime="20210110 11:52:44.957"></status>
-</kw>
-<kw name="Quando eu pesquisar pelo produto &quot;produtoNãoExistente&quot;">
-<kw name="Digitar o nome do produto &quot;${PRODUCT}&quot; no campo de pesquisa" library="Resource">
+<kw name="Digitar o nome do produto &quot;produtoNãoExistente&quot; no campo de pesquisa" library="Resource">
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>name=search_query</arg>
 <arg>${PRODUCT}</arg>
 </arguments>
-<msg timestamp="20210110 11:52:44.960" level="INFO">Typing text 'produtoNãoExistente' into text field 'name=search_query'.</msg>
-<status status="PASS" starttime="20210110 11:52:44.960" endtime="20210110 11:52:45.057"></status>
+<msg timestamp="20210119 12:21:09.408" level="INFO">Typing text 'produtoNãoExistente' into text field 'name=search_query'.</msg>
+<status status="PASS" starttime="20210119 12:21:09.407" endtime="20210119 12:21:09.526"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:44.959" endtime="20210110 11:52:45.058"></status>
+<status status="PASS" starttime="20210119 12:21:09.406" endtime="20210119 12:21:09.527"></status>
 </kw>
 <kw name="Clicar no botão pesquisar" library="Resource">
 <kw name="Click Button" library="SeleniumLibrary">
@@ -144,21 +151,18 @@
 <arguments>
 <arg>name=submit_search</arg>
 </arguments>
-<msg timestamp="20210110 11:52:45.059" level="INFO">Clicking button 'name=submit_search'.</msg>
-<status status="PASS" starttime="20210110 11:52:45.059" endtime="20210110 11:52:46.352"></status>
+<msg timestamp="20210119 12:21:09.533" level="INFO">Clicking button 'name=submit_search'.</msg>
+<status status="PASS" starttime="20210119 12:21:09.533" endtime="20210119 12:21:11.036"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:45.058" endtime="20210110 11:52:46.353"></status>
+<status status="PASS" starttime="20210119 12:21:09.532" endtime="20210119 12:21:11.036"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:44.958" endtime="20210110 11:52:46.353"></status>
-</kw>
-<kw name="Então a página deve exibir a mensagem &quot;No results were found for your search &quot;produtoNãoExistente&quot;&quot;">
-<kw name="Conferir se a mensagem de erro: &quot;${MESSAGE}&quot;" library="Resource">
+<kw name="Conferir se a mensagem de erro: &quot;No results were found for your search &quot;produtoNãoExistente&quot;&quot;" library="Resource">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>xpath=//*[@id="center_column"]/p[@class="alert alert-warning"]</arg>
 </arguments>
-<status status="PASS" starttime="20210110 11:52:46.355" endtime="20210110 11:52:46.397"></status>
+<status status="PASS" starttime="20210119 12:21:11.041" endtime="20210119 12:21:11.109"></status>
 </kw>
 <kw name="Element Text Should Be" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
@@ -166,23 +170,21 @@
 <arg>xpath=//*[@id="center_column"]/p[@class="alert alert-warning"]</arg>
 <arg>${MESSAGE}</arg>
 </arguments>
-<msg timestamp="20210110 11:52:46.398" level="INFO">Verifying element 'xpath=//*[@id="center_column"]/p[@class="alert alert-warning"]' contains exact text 'No results were found for your search "produtoNãoExistente"'.</msg>
-<status status="PASS" starttime="20210110 11:52:46.398" endtime="20210110 11:52:46.434"></status>
+<msg timestamp="20210119 12:21:11.110" level="INFO">Verifying element 'xpath=//*[@id="center_column"]/p[@class="alert alert-warning"]' contains exact text 'No results were found for your search "produtoNãoExistente"'.</msg>
+<status status="PASS" starttime="20210119 12:21:11.109" endtime="20210119 12:21:11.612"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:46.355" endtime="20210110 11:52:46.434"></status>
+<status status="PASS" starttime="20210119 12:21:11.041" endtime="20210119 12:21:11.612"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:46.354" endtime="20210110 11:52:46.435"></status>
-</kw>
-<status status="PASS" starttime="20210110 11:52:42.626" endtime="20210110 11:52:46.435" critical="yes"></status>
-</test>
 <kw name="Fechar navegador" library="Resource" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210110 11:52:46.447" endtime="20210110 11:52:51.440"></status>
+<status status="PASS" starttime="20210119 12:21:11.615" endtime="20210119 12:21:15.200"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:46.447" endtime="20210110 11:52:51.440"></status>
+<status status="PASS" starttime="20210119 12:21:11.613" endtime="20210119 12:21:15.200"></status>
 </kw>
-<status status="PASS" starttime="20210110 11:52:23.046" endtime="20210110 11:52:51.440"></status>
+<status status="PASS" starttime="20210119 12:20:49.514" endtime="20210119 12:21:15.201" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210119 12:20:14.216" endtime="20210119 12:21:15.203"></status>
 </suite>
 <statistics>
 <total>
@@ -192,7 +194,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" id="s1" name="TestSitePracticeBDD">TestSitePracticeBDD</stat>
+<stat pass="2" fail="0" id="s1" name="TestSitePractice">TestSitePractice</stat>
 </suite>
 </statistics>
 <errors>
