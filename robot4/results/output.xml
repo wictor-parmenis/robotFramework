@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.3 on win32)" generated="20210118 17:06:27.122" rpa="false">
-<suite id="s1" name="API01" source="C:\Users\WICTOR\PycharmProjects\RPA\robots\robot4\tests\API01.robot">
+<robot generator="Robot 3.2.2 (Python 3.8.3 on win32)" generated="20210119 07:51:46.663" rpa="false">
+<suite id="s1" name="API01" source="C:\Users\WICTOR\PycharmProjects\RPA\robot-framework\robot4\tests\API01.robot">
 <kw name="Connect With API" library="resourceAPI" type="setup">
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
@@ -8,65 +8,67 @@
 <arg>FakeAPI</arg>
 <arg>${URL_API}</arg>
 </arguments>
-<msg timestamp="20210118 17:06:27.340" level="INFO">Creating Session using : alias=FakeAPI, url=https://fakerestapi.azurewebsites.net/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210118 17:06:27.339" endtime="20210118 17:06:27.342"></status>
+<msg timestamp="20210119 07:51:46.868" level="INFO">Creating Session using : alias=FakeAPI, url=https://fakerestapi.azurewebsites.net/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210119 07:51:46.868" endtime="20210119 07:51:46.869"></status>
 </kw>
-<status status="PASS" starttime="20210118 17:06:27.339" endtime="20210118 17:06:27.342"></status>
+<status status="PASS" starttime="20210119 07:51:46.867" endtime="20210119 07:51:46.869"></status>
 </kw>
-<test id="s1-t1" name="Case of test 2: check a specific book">
-<kw name="request a specific book" library="resourceAPI">
+<test id="s1-t1" name="Case of test 3: cadaster a new book (POST)">
+<kw name="cadaster a new book" library="resourceAPI">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
-<arg>15</arg>
+<arg>content-type=application/json</arg>
 </arguments>
-<kw name="Get On Session" library="RequestsLibrary">
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210119 07:51:46.870" level="INFO">${headers} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20210119 07:51:46.870" endtime="20210119 07:51:46.870"></status>
+</kw>
+<kw name="Post On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
 <arguments>
 <arg>fakeApi</arg>
-<arg>Books/${id}</arg>
+<arg>Books</arg>
+<arg>data={"id": 210,"title": "test","description": "test","pageCount": 25,"excerpt": "test","publishDate": "2021-01-19T10:29:45.149Z"}</arg>
+<arg>headers=${headers}</arg>
 </arguments>
 <assign>
 <var>${Answer}</var>
 </assign>
-<msg timestamp="20210118 17:06:28.827" level="INFO">GET Request : url=https://fakerestapi.azurewebsites.net/api/v1/Books/15 
- path_url=/api/v1/Books/15 
- headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
+<msg timestamp="20210119 07:51:47.988" level="INFO">POST Request : url=https://fakerestapi.azurewebsites.net/api/v1/Books 
+ path_url=/api/v1/Books 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '125'} 
+ body={"id": 210,"title": "test","description": "test","pageCount": 25,"excerpt": "test","publishDate": "2021-01-19T10:29:45.149Z"} 
  </msg>
-<msg timestamp="20210118 17:06:28.827" level="INFO">GET Response : url=https://fakerestapi.azurewebsites.net/api/v1/Books/15 
+<msg timestamp="20210119 07:51:47.988" level="INFO">POST Response : url=https://fakerestapi.azurewebsites.net/api/v1/Books 
  status=200, reason=OK 
- headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8; v=1.0', 'Server': 'Kestrel', 'api-supported-versions': '1.0', 'Date': 'Mon, 18 Jan 2021 20:06:29 GMT'} 
- body={"id":15,"title":"Book 15","description":"Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n","pageCount":1500,"excerpt":"Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n","publishDate":"2021-01-03T20:06:30.2235855+00:00"} 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8; v=1.0', 'Server': 'Kestrel', 'api-supported-versions': '1.0', 'Date': 'Tue, 19 Jan 2021 10:51:50 GMT'} 
+ body={"id":210,"title":"test","description":"test","pageCount":25,"excerpt":"test","publishDate":"2021-01-19T10:29:45.149Z"} 
  </msg>
-<msg timestamp="20210118 17:06:28.827" level="INFO">c:\users\wictor\pycharmprojects\rpa\venv\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakerestapi.azurewebsites.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg timestamp="20210119 07:51:47.988" level="INFO">c:\users\wictor\pycharmprojects\rpa\venv\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakerestapi.azurewebsites.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20210118 17:06:28.827" level="INFO">${Answer} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210118 17:06:27.344" endtime="20210118 17:06:28.827"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Answer}</arg>
-</arguments>
-<msg timestamp="20210118 17:06:28.827" level="INFO">&lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210118 17:06:28.827" endtime="20210118 17:06:28.827"></status>
+<msg timestamp="20210119 07:51:47.989" level="INFO">${Answer} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210119 07:51:46.870" endtime="20210119 07:51:47.989"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${Answer.text}</arg>
 </arguments>
-<msg timestamp="20210118 17:06:28.827" level="INFO">{"id":15,"title":"Book 15","description":"Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n","pageCount":1500,"excerpt":"Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n","publishDate":"2021-01-03T20:06:30.2235855+00:00"}</msg>
-<status status="PASS" starttime="20210118 17:06:28.827" endtime="20210118 17:06:28.827"></status>
+<msg timestamp="20210119 07:51:47.990" level="INFO">{"id":210,"title":"test","description":"test","pageCount":25,"excerpt":"test","publishDate":"2021-01-19T10:29:45.149Z"}</msg>
+<status status="PASS" starttime="20210119 07:51:47.989" endtime="20210119 07:51:47.990"></status>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${Answer}</arg>
 </arguments>
-<msg timestamp="20210118 17:06:28.827" level="INFO">${Answer} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210118 17:06:28.827" endtime="20210118 17:06:28.827"></status>
+<msg timestamp="20210119 07:51:47.990" level="INFO">${Answer} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210119 07:51:47.990" endtime="20210119 07:51:47.990"></status>
 </kw>
-<status status="PASS" starttime="20210118 17:06:27.343" endtime="20210118 17:06:28.827"></status>
+<status status="PASS" starttime="20210119 07:51:46.869" endtime="20210119 07:51:47.991"></status>
 </kw>
 <kw name="check status code" library="resourceAPI">
 <arguments>
@@ -78,20 +80,20 @@
 <arg>${Answer.status_code}</arg>
 <arg>${status_code_ideal}</arg>
 </arguments>
-<msg timestamp="20210118 17:06:28.832" level="INFO">Argument types are:
+<msg timestamp="20210119 07:51:47.992" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20210118 17:06:28.832" endtime="20210118 17:06:28.832"></status>
+<status status="PASS" starttime="20210119 07:51:47.991" endtime="20210119 07:51:47.992"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${Answer.status_code}</arg>
 </arguments>
-<msg timestamp="20210118 17:06:28.832" level="INFO">200</msg>
-<status status="PASS" starttime="20210118 17:06:28.832" endtime="20210118 17:06:28.832"></status>
+<msg timestamp="20210119 07:51:47.992" level="INFO">200</msg>
+<status status="PASS" starttime="20210119 07:51:47.992" endtime="20210119 07:51:47.992"></status>
 </kw>
-<status status="PASS" starttime="20210118 17:06:28.827" endtime="20210118 17:06:28.832"></status>
+<status status="PASS" starttime="20210119 07:51:47.991" endtime="20210119 07:51:47.993"></status>
 </kw>
 <kw name="check reason" library="resourceAPI">
 <arguments>
@@ -103,58 +105,37 @@
 <arg>${Answer.reason}</arg>
 <arg>${reason_ideal}</arg>
 </arguments>
-<status status="PASS" starttime="20210118 17:06:28.832" endtime="20210118 17:06:28.832"></status>
+<status status="PASS" starttime="20210119 07:51:47.993" endtime="20210119 07:51:47.994"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${Answer.reason}</arg>
 </arguments>
-<msg timestamp="20210118 17:06:28.832" level="INFO">OK</msg>
-<status status="PASS" starttime="20210118 17:06:28.832" endtime="20210118 17:06:28.832"></status>
+<msg timestamp="20210119 07:51:47.994" level="INFO">OK</msg>
+<status status="PASS" starttime="20210119 07:51:47.994" endtime="20210119 07:51:47.994"></status>
 </kw>
-<status status="PASS" starttime="20210118 17:06:28.832" endtime="20210118 17:06:28.837"></status>
-</kw>
-<kw name="check datas of book 15" library="resourceAPI">
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Answer.json()}</arg>
-</arguments>
-<msg timestamp="20210118 17:06:28.837" level="INFO">{'id': 15, 'title': 'Book 15', 'description': 'Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n', 'pageCount': 1500, 'excerpt': 'Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n', 'publishDate': '2021-01-03T20:06:30.2235855+00:00'}</msg>
-<status status="PASS" starttime="20210118 17:06:28.837" endtime="20210118 17:06:28.837"></status>
-</kw>
-<kw name="Dictionary Should Contain Item" library="Collections">
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<arguments>
-<arg>${Answer.json()}</arg>
-<arg>id</arg>
-<arg>${SPECIFIC_BOOK.id}</arg>
-</arguments>
-<msg timestamp="20210118 17:06:28.837" level="FAIL">Resolving variable '${SPECIFIC_BOOK.id}' failed: AttributeError: 'str' object has no attribute 'id'</msg>
-<status status="FAIL" starttime="20210118 17:06:28.837" endtime="20210118 17:06:28.837"></status>
-</kw>
-<status status="FAIL" starttime="20210118 17:06:28.837" endtime="20210118 17:06:28.837"></status>
+<status status="PASS" starttime="20210119 07:51:47.993" endtime="20210119 07:51:47.994"></status>
 </kw>
 <tags>
-<tag>SPECIFIC</tag>
+<tag>POST</tag>
 </tags>
-<status status="FAIL" starttime="20210118 17:06:27.342" endtime="20210118 17:06:28.837" critical="yes">Resolving variable '${SPECIFIC_BOOK.id}' failed: AttributeError: 'str' object has no attribute 'id'</status>
+<status status="PASS" starttime="20210119 07:51:46.869" endtime="20210119 07:51:47.995" critical="yes"></status>
 </test>
 <doc>https://fakerestapi.azurewebsites.net/index.html
 Endpoints = Books</doc>
-<status status="FAIL" starttime="20210118 17:06:27.122" endtime="20210118 17:06:28.840"></status>
+<status status="PASS" starttime="20210119 07:51:46.666" endtime="20210119 07:51:47.997"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1">Critical Tests</stat>
-<stat pass="0" fail="1">All Tests</stat>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1">SPECIFIC</stat>
+<stat pass="1" fail="0">POST</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" id="s1" name="API01">API01</stat>
+<stat pass="1" fail="0" id="s1" name="API01">API01</stat>
 </suite>
 </statistics>
 <errors>

@@ -7,11 +7,9 @@ Library         Collections
 
 *** Variables ***
 ${URL_API}          https://fakerestapi.azurewebsites.net/api/v1
-${SPECIFIC_BOOK}
-...  id=15
-...  title=Book 15
-...  pageCount=1500
-...
+&{SPECIFIC_BOOK}    id=15
+...                 title=Book 15
+...                 pageCount=1500
 
 *** Keywords ***
 ### SETUP AND TEARDOWN
@@ -33,6 +31,13 @@ request a specific book
     log                 ${Answer.text}
     set test variable   ${Answer}
 
+cadaster a new book
+    ${headers}          create dictionary  content-type=application/json
+    ${Answer}           post on session    fakeApi  Books
+    ...                                    data={"id": 210,"title": "test","description": "test","pageCount": 25,"excerpt": "test","publishDate": "2021-01-19T10:29:45.149Z"}
+    ...                                    headers=${headers}
+    log                 ${Answer.text}
+    set test variable   ${Answer}
 
 ### CHECKS
 check status code
@@ -52,6 +57,7 @@ check all books
 
 check datas of book 15
     log                              ${Answer.json()}
+    log                              ${SPECIFIC_BOOK}
     dictionary should contain item   ${Answer.json()}   id          ${SPECIFIC_BOOK.id}
     dictionary should contain item   ${Answer.json()}   title       ${SPECIFIC_BOOK.title}
     dictionary should contain item   ${Answer.json()}   pageCount   ${SPECIFIC_BOOK.pageCount}
@@ -59,5 +65,6 @@ check datas of book 15
     should not be empty    ${Answer.json()["description"]}
     should not be empty    ${Answer.json()["excerpt"]}
     should not be empty    ${Answer.json()["publishDate"]}
+
 
 

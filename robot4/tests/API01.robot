@@ -24,9 +24,13 @@ Case of test 2: check a specific book
 
 Case of test 3: cadaster a new book (POST)
     [TAGS]  POST
+    cadaster a new book
+    check status code            200
+    check reason                 OK
 
 Case of test 4: TO-DO - Alter the book (PUT)
     [TAGS]  PUT
+
 
 Case of test 5: TO-DO - delete a book (DELETE)
     [TAGS]  DELETE
