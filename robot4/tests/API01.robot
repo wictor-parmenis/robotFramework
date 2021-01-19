@@ -30,10 +30,16 @@ Case of test 3: cadaster a new book (POST)
 
 Case of test 4: TO-DO - Alter the book (PUT)
     [TAGS]  PUT
-
+    alter a book    100
+    check status code            200
+    check reason                 OK
 
 Case of test 5: TO-DO - delete a book (DELETE)
     [TAGS]  DELETE
+    delete a book   2
+    check status code            200
+    check reason                 OK
+    check delete book
 
 
 

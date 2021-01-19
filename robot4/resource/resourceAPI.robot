@@ -10,6 +10,7 @@ ${URL_API}          https://fakerestapi.azurewebsites.net/api/v1
 &{SPECIFIC_BOOK}    id=15
 ...                 title=Book 15
 ...                 pageCount=1500
+${DELETE_BOOK}
 
 *** Keywords ***
 ### SETUP AND TEARDOWN
@@ -39,6 +40,22 @@ cadaster a new book
     log                 ${Answer.text}
     set test variable   ${Answer}
 
+alter a book
+    [Arguments]         ${id}
+    ${headers}          create dictionary  content-type=application/json
+    ${Answer}           put on session  fakeApi  Books/${id}
+    ...                 data={"id": 100, "title": "test 2", "description": "test 2", "pageCount": 0, "excerpt": "test 2", "publishDate": "2021-01-19T10:55:09.641Z"}
+    ...                 headers=${headers}
+    set test variable   ${Answer}
+    log                 ${Answer.json()}
+
+delete a book
+    [Arguments]         ${id}
+    ${Answer}           delete on session  fakeApi  Books/${id}
+    log                 ${Answer.text}
+    set test variable   ${Answer}
+
+
 ### CHECKS
 check status code
     [Arguments]                  ${status_code_ideal}
@@ -65,6 +82,14 @@ check datas of book 15
     should not be empty    ${Answer.json()["description"]}
     should not be empty    ${Answer.json()["excerpt"]}
     should not be empty    ${Answer.json()["publishDate"]}
+
+check delete book
+    log                              ${Answer}
+    log                              ${Answer.text}
+    log                              ${DELETE_BOOK}
+    should be equal as strings       ${Answer.text}   ${DELETE_BOOK}
+
+
 
 
 
